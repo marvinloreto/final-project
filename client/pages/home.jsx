@@ -1,10 +1,9 @@
 import React from 'react';
-import HelloWorld from '../components/hello-world';
 
 export default function Home(props) {
   return (
     <div>
-      <HelloWorld />
+      <a href="#form" className="workout-button">Start Workout</a>
     </div>
   );
 }
