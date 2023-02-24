@@ -3,7 +3,7 @@ import React from 'react';
 export default function Home(props) {
   return (
     <div>
-      <a href="#form" className="workout-button">Start Workout</a>
+      <a href="#form" className="workout-but">Start Workout</a>
     </div>
   );
 }
