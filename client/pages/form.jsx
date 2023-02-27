@@ -75,9 +75,9 @@ export default class Form extends React.Component {
   render() {
     return (
       <div className="container-form">
-        <div className="row">
+        <div className="row form-header-row">
           <div className="col-8">
-            <h1 className="form-header">New Workout</h1>
+            <h3 className="form-header">New Workout</h3>
           </div>
         </div>
         <form onSubmit={this.handleSubmit}>
@@ -124,7 +124,7 @@ export default class Form extends React.Component {
             <div className="notes-column column-full">
               <label htmlFor="notes" className="notes-label" >
                 Notes:
-                <input required placeholder="Additional Notes:" className="notes-control form-control" name="notes" type="text" id="notes" onChange={this.handleNotes} value={this.state.notes} />
+                <textarea required placeholder="Additional Notes:" className="form-control notes-control" id="notes" rows="3" onChange={this.handleNotes} value={this.state.notes} />
               </label>
             </div>
           </div>
@@ -132,11 +132,11 @@ export default class Form extends React.Component {
             <div className="date-column column-full">
               <label htmlFor="date">
                 Date:
-                <input required className="form-control" name="date" type="date" id="date" onChange={this.handleDate} value={this.state.date} />
+                <input required className="form-control date-control" name="date" type="date" id="date" onChange={this.handleDate} value={this.state.date} />
               </label>
             </div>
           </div>
-          <button className="form-submit-but" type="submit">Add Exercise</button>
+          <button className="form-submit-button" type="submit">Add Exercise</button>
         </form>
       </div>
     );

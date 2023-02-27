@@ -17,18 +17,13 @@ const app = express();
 app.use(staticMiddleware);
 app.use(express.json());
 
-// Sample code from copy. Delete before pushing Issue-1
-app.get('/api/hello', (req, res) => {
-  res.json({ hello: 'world' });
-});
-
 app.post('/api/exercises', (req, res, next) => {
   const { exerciseName, sets, reps, target, notes, date } = req.body;
   if (!exerciseName || !sets || !reps || !target || !notes || !date) {
     throw new ClientError(400, 'Error: exerciseName, sets, reps, target, notes, date are required fields');
   }
-  if (isNaN(sets) || isNaN(reps)) {
-    throw new ClientError(400, 'Error: sets, reps, must be a number.');
+  if (isNaN(sets) || isNaN(reps) || Number(sets) < 0 || Number(reps) < 0) {
+    throw new ClientError(400, 'Error: sets, reps, must be a positive number.');
   }
   const sql = `
       insert into "workouts" ("date")
