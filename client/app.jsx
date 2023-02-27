@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './pages/home';
 import Form from './pages/form';
 import Header from './components/header';
-import { parseRoute } from './lib';
+import parseRoute from './lib/parse-route';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,8 +14,8 @@ export default class App extends React.Component {
 
   componentDidMount() {
     window.addEventListener('hashchange', event => {
-      const hello = parseRoute(window.location.hash);
-      this.setState({ route: hello });
+      const welcome = parseRoute(window.location.hash);
+      this.setState({ route: welcome });
     });
   }
 

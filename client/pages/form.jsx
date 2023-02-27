@@ -76,7 +76,6 @@ export default class Form extends React.Component {
     return (
       <div className="container-form">
         <div className="row">
-          <div className="col-2" />
           <div className="col-8">
             <h1 className="form-header">New Workout</h1>
           </div>
@@ -91,13 +90,13 @@ export default class Form extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="column-sets column-half">
+            <div className="column-sets col-5">
               <label htmlFor="sets">
                 Sets:
                 <input required placeholder="# of sets" className="form-control" name="sets" type="number" id="sets" onChange={this.handleSets} value={this.state.sets} />
               </label>
             </div>
-            <div className="column-reps column-half">
+            <div className="column-reps col-5">
               <label htmlFor="reps">
                 Reps:
                 <input required placeholder="# of reps" className="form-control" name="reps" type="number" id="reps" onChange={this.handleReps} value={this.state.reps} />
@@ -107,7 +106,7 @@ export default class Form extends React.Component {
           <div className="row">
             <div className="target-column column-full">
               <label htmlFor="target" className="target-label">
-                Target:
+                Target: <br/>
                 <select className="target-select" name="target" required onChange={this.handleTarget}>
                   <option value="">Target Muscles</option>
                   <option value="Chest">Chest</option>

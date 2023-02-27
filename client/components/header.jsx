@@ -4,7 +4,7 @@ export default function Header(props) {
   return (
     <header>
       <div className="container">
-        <div className="row">
+        <div className="row header-row">
           <div className="col-1">
             <i className="fa-solid fa-bars" />
           </div>

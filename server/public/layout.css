@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.container-form {
+  text-align: center;
+}
+
+form > .row {
+  padding: 10px 0;
+}
