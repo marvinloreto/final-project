@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './pages/home';
 import Form from './pages/form';
 import Header from './components/header';
+import MenuModal from './components/menu';
 import parseRoute from './lib/parse-route';
 
 export default class App extends React.Component {
@@ -33,6 +34,7 @@ export default class App extends React.Component {
     return (
       <>
         <Header />
+        <MenuModal />
         {this.renderPage()}
       </>
     );
