@@ -8,7 +8,7 @@ export default function WorkoutList(props) {
         const workoutDates = new Date(array.date).toLocaleDateString('en-US', options);
         return (
           <li className='workout-dates' key={array.workoutId}>
-            <button onClick={ e => props.dateSelect(e, array.workoutId)} key={array.workoutId} className='slash-dates'>{workoutDates}</button>
+            <button onClick={ e => props.dateSelect(e, array.workoutId)} key={array.workoutId} className='slash-dates'>{workoutDates} <br /> Workouts: 1</button>
           </li>
         );
       })}

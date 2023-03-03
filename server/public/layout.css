@@ -13,3 +13,9 @@
 form > .row {
   padding: 10px 0;
 }
+
+@media screen and (min-width: 768px) {
+  .menu {
+    width: 40%;
+  }
+}

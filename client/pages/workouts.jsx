@@ -59,7 +59,7 @@ export default class WorkoutViews extends React.Component {
           <div className='info-menu'>
             <div className='info-title'>
               <h1 className='info-date'>{dateString}</h1>
-              <i onClick={this.exit} className='fa-solid fa-person-running' />
+              <i onClick={this.exit} className='fa-solid fa-square-xmark' />
             </div>
             <h2 className='info-name'>{currentInfo.exerciseName}</h2>
             <h3 className='info-target'>Target: {currentInfo.target}</h3>
