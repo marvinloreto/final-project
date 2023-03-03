@@ -4,6 +4,7 @@ import Form from './pages/form';
 import Header from './components/header';
 import MenuModal from './components/menu';
 import parseRoute from './lib/parse-route';
+import WorkoutViews from './pages/workouts';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -27,6 +28,9 @@ export default class App extends React.Component {
     }
     if (route.path === 'form') {
       return <Form />;
+    }
+    if (route.path === 'workouts') {
+      return <WorkoutViews />;
     }
   }
 

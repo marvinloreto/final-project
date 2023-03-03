@@ -5,7 +5,7 @@ export default function WorkoutList(props) {
   return (
     <ul>
       {props.workouts.map(array => {
-        const workoutDates = new Date(array.Date).toLocaleDateString('en-US', options);
+        const workoutDates = new Date(array.date).toLocaleDateString('en-US', options);
         return (
           <li className='workout-dates' key={array.workoutId}>
             <button onClick={ e => props.dateSelect(e, array.workoutId)} key={array.workoutId} className='slash-dates'>{workoutDates}</button>
