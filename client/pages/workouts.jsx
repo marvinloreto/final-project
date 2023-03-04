@@ -53,12 +53,15 @@ export default class WorkoutViews extends React.Component {
     const finalChoice = this.state.workouts.find(array => array.workoutId === currentInfo.workoutId);
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     const dateString = new Date(finalChoice.date).toLocaleDateString('en-US', options);
+    const workoutDay = Number(new Date(dateString).getUTCDate()) + 1;
+    const workoutMonth = Number(new Date(dateString).getUTCMonth()) + 1;
+    const workoutYear = new Date(dateString).getUTCFullYear();
     return (
       <div className='overlay'>
         <div>
           <div className='info-menu'>
             <div className='info-title'>
-              <h1 className='info-date'>{dateString}</h1>
+              <h1 className='info-date'>{workoutMonth} / {workoutDay} / {workoutYear}</h1>
               <i onClick={this.exit} className='fa-solid fa-square-xmark' />
             </div>
             <h2 className='info-name'>{currentInfo.exerciseName}</h2>
