@@ -76,3 +76,147 @@ select {
   font-weight: bold;
   margin-top: 25px;
 }
+
+.menu-bars {
+  color: white;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: none;
+}
+
+.overlay {
+  background-color: rgb(0 0 0 / 50%);
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.menu {
+  width: 25%;
+  min-height: 100vh;
+  background-color: #acacac;
+  color: white;
+  position: relative;
+}
+
+.menu-button,
+.menu-button:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.list {
+  list-style: none;
+  font-size: 24px;
+  padding-top: 40px;
+  line-height: 50px;
+  margin-left: -15px;
+}
+
+.month-menu {
+  padding-left: 25px;
+  padding-top: 25px;
+  margin-bottom: 25px;
+}
+
+.no-workout {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.info-menu {
+  padding-top: 20px;
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  margin-left: -200px;
+  top: 25%;
+  background-color: white;
+  border: 2px black solid;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.slash-dates {
+  position: relative;
+  left: 10%;
+  top: 15%;
+  text-decoration: none;
+  font-size: 18pt;
+  border: none;
+  background-color: #acacac;
+  text-align: center;
+}
+
+.workout-dates {
+  float: left;
+  width: 200px;
+  height: 120px;
+  list-style-type: none;
+  border: 5px solid #2b2d42;
+  padding-left: 2px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #acacac;
+}
+
+.workout-dates:hover,
+.workout-dates:focus {
+  transform: translateY(-0.25em);
+}
+
+.info-name {
+  padding-bottom: 10px;
+}
+
+.info-numbers {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.info-sets {
+  padding-right: 1rem;
+}
+
+.info-date {
+  background-color: #ed0202;
+  margin-top: -20px;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.info-notes-title {
+  padding-top: 10px;
+}
+
+.fa-square-xmark {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 20pt;
+  cursor: pointer;
+}
+
+.fa-pen-to-square {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 20pt;
+  cursor: pointer;
+}

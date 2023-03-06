@@ -17,6 +17,41 @@ const app = express();
 app.use(staticMiddleware);
 app.use(express.json());
 
+app.get('/api/workouts', (req, res, next) => {
+  const sql = `
+      select *
+      from "workouts"
+      ORDER BY "date"
+      `;
+  db.query(sql)
+    .then(result => {
+      res.status(201).json(result.rows);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+app.get('/api/exercises/:workoutId', (req, res, next) => {
+  const workoutId = Number(req.params.workoutId);
+  if (isNaN(workoutId) || !workoutId || workoutId < 1) {
+    throw new ClientError(400, 'Error: workoutId must be a positive integer');
+  }
+  const sql = `
+      select *
+      from "exercises"
+      where "workoutId" = $1
+      `;
+  const params = [req.params.workoutId];
+  db.query(sql, params)
+    .then(result => {
+      res.status(201).json(result.rows);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 app.post('/api/exercises', (req, res, next) => {
   const { exerciseName, sets, reps, target, notes, date } = req.body;
   if (!exerciseName || !sets || !reps || !target || !notes || !date) {
