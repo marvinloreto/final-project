@@ -52,6 +52,34 @@ app.get('/api/exercises/:workoutId', (req, res, next) => {
     });
 });
 
+app.put('/api/exercises/:workoutId', (req, res, next) => {
+  const { exerciseName, target, sets, reps, notes } = req.body;
+  const workoutId = Number(req.params.workoutId);
+  if (!Number.isInteger(workoutId) || workoutId < 1) {
+    throw new ClientError(400, 'Error: workoutId must be a positive integer');
+  }
+  if (workoutId === undefined) {
+    throw new ClientError(404, 'Error: workoutId does not exist');
+  }
+  const sql = `
+    update "exercises"
+    set "exerciseName" = $1,
+        "target" = $2,
+        "sets" = $3,
+        "reps" = $4,
+        "notes" = $5,
+    where "workoutId" = $6
+    `;
+  const params = [exerciseName, target, sets, reps, notes, req.params.workoutId];
+  db.query(sql, params)
+    .then(result => {
+      res.status(201).json(result.rows);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 app.post('/api/exercises', (req, res, next) => {
   const { exerciseName, sets, reps, target, notes, date } = req.body;
   if (!exerciseName || !sets || !reps || !target || !notes || !date) {
