@@ -107,7 +107,7 @@ export default class Form extends React.Component {
             <div className="target-column column-full">
               <label htmlFor="target" className="target-label">
                 Target: <br/>
-                <select className="target-select" name="target" required onChange={this.handleTarget}>
+                <select className="target-select" name="target" required onChange={this.handleTarget} value={this.state.target}>
                   <option value="">Target Muscles</option>
                   <option value="Chest">Chest</option>
                   <option value="Back">Back</option>

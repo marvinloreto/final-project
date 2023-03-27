@@ -79,4 +79,71 @@ export default class EditForm extends React.Component {
     });
     window.location.hash = '#workouts';
   }
+
+  render() {
+    const workouts = this.props.workouts.x;
+    const details = this.props.details.y[0];
+    const finalChoice = workouts.find(x => x.workoutId === details.workoutId);
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    const dateString = new Date(finalChoice.Date).toLocaleDateString('en-US', options);
+    return (
+      <div className="container-form">
+        <div className="row form-header-row">
+          <div className="col-8">
+            <h3 className="from-header">{dateString}</h3>
+          </div>
+        </div>
+        <form onSubmit={this.handleSubmit}>
+          <div className="row">
+            <div className="column-full-exerciseName">
+              <label htmlFor="exercise-name">
+                Exercise:
+                <input required placeholder="Exercise Name" className="form-control exercise-input" name="name" type="text" id="exercise-name" onChange={this.handleExerciseChange} value={this.state.exerciseName} />
+              </label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="column-sets col-5">
+              <label htmlFor="sets">
+                Sets:
+                <input required placeholder="# of sets" className="form-control" name="sets" type="number" id="sets" onChange={this.handleSetsChange} value={this.state.sets} />
+              </label>
+            </div>
+            <div className="column-reps col-5">
+              <label htmlFor="reps">
+                Reps:
+                <input required placeholder="# of reps" className="form-control" name="reps" type="number" id="reps" onChange={this.handleRepsChange} value={this.state.reps} />
+              </label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="target-column column-full">
+              <label htmlFor="target" className="target-label">
+                Target: <br />
+                <select className="target-select" name="target" required onChange={this.handleTargetChange} value={this.state.target}>
+                  <option value="">Target Muscles</option>
+                  <option value="Chest">Chest</option>
+                  <option value="Back">Back</option>
+                  <option value="Arms">Arms</option>
+                  <option value="Shoulders">Shoulders</option>
+                  <option value="Abs">Abs</option>
+                  <option value="Legs">Legs</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="notes-column column-full">
+              <label htmlFor="notes" className="notes-label" >
+                Notes:
+                <textarea required placeholder="Additional Notes:" className="form-control notes-control" id="notes" rows="3" onChange={this.handleNotesChange} value={this.state.notes} />
+              </label>
+            </div>
+          </div>
+          <button className="form-submit-button" type="submit">Edit</button>
+        </form>
+      </div>
+    );
+  }
 }
