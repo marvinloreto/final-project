@@ -67,7 +67,7 @@ app.put('/api/exercises/:workoutId', (req, res, next) => {
         "target" = $2,
         "sets" = $3,
         "reps" = $4,
-        "notes" = $5,
+        "notes" = $5
     where "workoutId" = $6
     `;
   const params = [exerciseName, target, sets, reps, notes, req.params.workoutId];
