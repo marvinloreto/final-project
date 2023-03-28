@@ -16,6 +16,7 @@ export default class WorkoutViews extends React.Component {
     this.dateSelect = this.dateSelect.bind(this);
     this.info = this.info.bind(this);
     this.exit = this.exit.bind(this);
+    this.passState = this.passState.bind(this);
   }
 
   handleClickItem(event) {
@@ -46,6 +47,12 @@ export default class WorkoutViews extends React.Component {
 
   exit() {
     this.setState({ isClicked: false });
+  }
+
+  passState() {
+    const info = this.state.info;
+    const workouts = this.state.workouts;
+    return { info, workouts };
   }
 
   info() {
