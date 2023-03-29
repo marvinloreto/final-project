@@ -20,13 +20,13 @@ export default class EditForm extends React.Component {
   }
 
   componentDidMount() {
-    const details = this.props.details.y[0];
+    const info = this.props.info.y[0];
     this.setState({
-      exerciseName: details.exerciseName,
-      target: details.target,
-      sets: details.sets,
-      reps: details.reps,
-      notes: details.notes
+      exerciseName: info.exerciseName,
+      target: info.target,
+      sets: info.sets,
+      reps: info.reps,
+      notes: info.notes
     });
   }
 
@@ -63,7 +63,7 @@ export default class EditForm extends React.Component {
       reps: this.state.reps,
       notes: this.state.notes
     };
-    fetch(`/api/exercises/${this.props.details.y[0].workoutId}`, {
+    fetch(`/api/exercises/${this.props.info.y[0].workoutId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(Edit)
@@ -82,8 +82,8 @@ export default class EditForm extends React.Component {
 
   render() {
     const workouts = this.props.workouts.x;
-    const details = this.props.details.y[0];
-    const finalChoice = workouts.find(x => x.workoutId === details.workoutId);
+    const info = this.props.info.y[0];
+    const finalChoice = workouts.find(x => x.workoutId === info.workoutId);
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     const dateString = new Date(finalChoice.Date).toLocaleDateString('en-US', options);
     return (
